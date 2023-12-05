@@ -1,0 +1,456 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address payable",
+								"name": "account",
+								"type": "address"
+							},
+							{
+								"internalType": "uint96",
+								"name": "value",
+								"type": "uint96"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct LibPart.Part[]",
+						"name": "royalties",
+						"type": "tuple[]"
+					}
+				],
+				"name": "RoyaltiesSet",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "_INTERFACE_ID_ERC2981",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "getRoyalties",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address payable",
+								"name": "account",
+								"type": "address"
+							},
+							{
+								"internalType": "uint96",
+								"name": "value",
+								"type": "uint96"
+							}
+						],
+						"internalType": "struct LibPart.Part[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "royalties",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint96",
+						"name": "value",
+						"type": "uint96"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_salePrice",
+						"type": "uint256"
+					}
+				],
+				"name": "royaltyInfo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "royaltyAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "_royaltiesReceipientAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint96",
+						"name": "_percentageBasisPoints",
+						"type": "uint96"
+					}
+				],
+				"name": "setRoyalties",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenHasRoyaltyPercentage",
+				"outputs": [
+					{
+						"internalType": "uint96",
+						"name": "percentage",
+						"type": "uint96"
+					},
+					{
+						"internalType": "address",
+						"name": "beneficiary",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Amaz005.sol": "ERC2981Rarible"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/AbstractRoyalties.sol": {
+			"keccak256": "0x91a5513b16f956430c8d8598ec35d15bee33313bf48d4163783faba285c1782a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://237a8e36dcce3cae140282803fc636d76f825d9bcc6c76400735685a7f784c4b",
+				"dweb:/ipfs/QmZHQEpuMdCk29LESjcGHqEpn4KaGwDD5RR6ochSaYnzeY"
+			]
+		},
+		"contracts/AccessControl.sol": {
+			"keccak256": "0x53d6f9a9c800145f6858f9f16c612215785663cdd5dfeb9a84e6690145ebb053",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cb3c207533f2cb351d7f7c113fbaabc2845616f6a7b07b5cb42d8ec77ade8cca",
+				"dweb:/ipfs/QmU2gcsX1ZpxXffWFsRrzYJtHDeiA6bSsycnosCqw4KLxr"
+			]
+		},
+		"contracts/AccessControlEnumerable.sol": {
+			"keccak256": "0xbfe00eeab803413c788c3b08653a53f790d67d1eb34cb15ef50a22a5c4007fb4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://35376b37ea5eaf541eb8f546c0775b3030aa506d544d17298aae8170bca478ca",
+				"dweb:/ipfs/QmWFGNznWA6bhL5etoQnJFwKGnQK2BtHfoZteDq1NeuNon"
+			]
+		},
+		"contracts/Address.sol": {
+			"keccak256": "0x56995dd42ce308cec23c0395dd4319beec31fe36a5622b0298d1d29ddc92f5a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4bcb6551b5b293999fb9d0fb6701bbe6fac2c20f50bba07f44060a504d04bbd3",
+				"dweb:/ipfs/QmWg3isYEch4M1ey6ZttQS8xCaWWtHSNJR7VKzvnHFC821"
+			]
+		},
+		"contracts/Amaz005.sol": {
+			"keccak256": "0xe50aede373b338c927b7104e13e52788de365e17706a279b9d4217be858fc278",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a085ed7a99dc6bfffbff3981872e36ed92dd476bbc5f7d7bd850e66ac3f18327",
+				"dweb:/ipfs/QmeroTx5ckn6q6g2tu1xLoUAASzvtURgKQT1k67EczmgcY"
+			]
+		},
+		"contracts/Context.sol": {
+			"keccak256": "0x9c22fa9375b8b5c840785989cefb0fb93bcef5acf944de3cada11eea1846668b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fec64cd92f82a727d6029d5c974fc10fae5e5de581a3e1716c0fbea77848440d",
+				"dweb:/ipfs/QmcP1Y9S8XoBuncvBYBZugpy2oyCZT7iqNtVyjFmozkNJh"
+			]
+		},
+		"contracts/Counters.sol": {
+			"keccak256": "0x98d15b585823d56c26d66a6ce7330a5e0c7b36d0c812d770db7e8ce3807a4671",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e2a3e48cff1df098c136e823a542a7c499f7947b86cfb1464405aff68441c627",
+				"dweb:/ipfs/QmdvihUBQmLdwsLfbYwMynKDhipAR8hGde3682WZR2QHsq"
+			]
+		},
+		"contracts/ERC165.sol": {
+			"keccak256": "0x6daeb7a509fb10e5e8a52e1f2bbcf749ada25fc50deccfc82cbabeccc2bd644e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a0dc76637b0377f014d6aebdc215e6cdcf6d5d74cca72661db0d72d50eb51ca3",
+				"dweb:/ipfs/QmZM4c66SX6jLACEFJowRxZ7vgPNRD6eNm8kzuof16RZd5"
+			]
+		},
+		"contracts/ERC721.sol": {
+			"keccak256": "0xe57c717c99e59710bd16edd1ed8a84b3daa5da278f7009b9a04dcc2d821a6c86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dde99358d04d5bc165ee1f63bce43b6ad77995d53e14d83688fb9a40c85fad18",
+				"dweb:/ipfs/QmTYGCRCEHkWsizggeRGwUVSv9WMMp4iu8SFdmarYW26bJ"
+			]
+		},
+		"contracts/ERC721Enumerable.sol": {
+			"keccak256": "0x8debe336c9a3b97d721889eca80a56e24a3ba9b137f3b70118fa96f9e31c52b0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://008ddd08caf825677b9b3df911c098cd454ede92154e2decb3153077c0a3d2e4",
+				"dweb:/ipfs/QmSGRZCuuFBpHD6fBCNMSbEkhhcmnESECVeYwZN2Um9tVX"
+			]
+		},
+		"contracts/EnumerableSet.sol": {
+			"keccak256": "0xfcd8014090f0a576a390e8d6de26e6e57a419e1a224d18c469b784cacf4d2efa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8c4ef44a3eb1f9e6e8e6822cd1ede75dea941516e6d4522894e0d09e717717ce",
+				"dweb:/ipfs/QmQCcERW6ibVKdZnKEdnE955BgKnNkDGhSsdAkBvVf39H4"
+			]
+		},
+		"contracts/IERC165.sol": {
+			"keccak256": "0xfc0296945555d45d710d7a0ab5cf09b90541ebbf92685780c70a6607d10e784a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://324027b4c88ab64f9a4cb8837b794a52785c1b1c2f2875773ac5ce69cde442bf",
+				"dweb:/ipfs/QmZDtbDjULZUNtq1z2RGNrBJw5WUtQzPHUFxTQxqzEq3om"
+			]
+		},
+		"contracts/IERC721.sol": {
+			"keccak256": "0x0fcfbc00210f7090822e2b23c92dae52221aa6b85c93c6e79287f65c911da04d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://62bc73c8d7f01e6bac1a9e42edc312d1be41cb3a8e57d0cb8c6ee8799c02a0ff",
+				"dweb:/ipfs/QmXufMZ88tNPNH5Q76xZ2Svh9Z9GH9m6Tiu7Fu972EFh54"
+			]
+		},
+		"contracts/IERC721Enumerable.sol": {
+			"keccak256": "0xe038fd7066954b2c5d7425d927391c3a4cd1a3ed3b1922f381b2f8a7326c5f04",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f7c8299fc9806b62cc80021d48214abd431c9af7e9ae48af9ed73117f0c205f5",
+				"dweb:/ipfs/QmaTUzUGGi8qmDQp2NCrJKbSMq8D68CTS8NKcoXWwhDiBu"
+			]
+		},
+		"contracts/IERC721Metadata.sol": {
+			"keccak256": "0x91534abf13b4740a4f41933390a3d96052b4d8901612f2506539f83b5680b8fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1c9b2d7c6eabbdd51ba76a8ae05f4c98138ddbbeba260a6319c260a8361fc855",
+				"dweb:/ipfs/QmengbndFKpk1Q1do8timTsJbnG3K5vSTjYm89ErW4aeAj"
+			]
+		},
+		"contracts/IERC721Receiver.sol": {
+			"keccak256": "0x83a0fdf3934b3f74978aab07e24a1d6b98a8572fbba4c907d3d8eb21377de230",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e14c8a61e8e808be0203cacd1f2106c0c540cc05f65c15059c50218d01bd4f8f",
+				"dweb:/ipfs/QmY1ZYTApvaXymeJYmQA8ZBVMisX2kYgcUPFLhn8cEVVvi"
+			]
+		},
+		"contracts/LibPart.sol": {
+			"keccak256": "0x60bd38909da8ab060c7c80e7f6ad2b84c3968a476387029cae1c1f269a63e296",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ecf7a961de91c898ab116d3ca72a91d6803f7fd377fe4f8af7702cc2bcc655e0",
+				"dweb:/ipfs/Qme4LivDxeDBH2dZ5f2h9xfDKMP6fkJfeTB5DyYX2yyZZR"
+			]
+		},
+		"contracts/LibRoyaltiesV2.sol": {
+			"keccak256": "0x13106cdf7952c9facd9f2d6ae68a9733f625d2aaabbecbae46dac7e27fe2f023",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://23abb04ce62f55e255b7a8c16d471ed03e9052107d711b7d6d2416e22a514e15",
+				"dweb:/ipfs/QmY7JcBBf5PH6CCXTzEqVZGcmpmEw6z4yGWS4Sq5GJCpBV"
+			]
+		},
+		"contracts/Ownable.sol": {
+			"keccak256": "0x573d1a5ce7fc3e02f6cf7eb9cdf35697c9b0a1ca640ec4e2f927aea0907bdd90",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7f534310f833e9b85a0d4a5da4893dc2f03ea382b4c2d5c17468949284d823a4",
+				"dweb:/ipfs/QmRZVTvUXbN1FiqckWp77muaLbUiQ8tePGVWkKSeVfLPCb"
+			]
+		},
+		"contracts/RoyaltiesV2.sol": {
+			"keccak256": "0xc5c841f822c0fde18ac4cb3d4700602d7e0c0c48dddd37b2b2113d531cd0f461",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6369000cf3aaec66081ff94970cdf563f88475a0339f7fcdbcc3439c03c63e84",
+				"dweb:/ipfs/Qmf4mzgY2n5dpRUGG2EnoniC31AYp5BLYgDftyzHSsTdSM"
+			]
+		},
+		"contracts/RoyaltiesV2Impl.sol": {
+			"keccak256": "0x9f71e7493cd7ff8360f00b6a50635abb8e6e7ac14d35f2db11b1cfc8eb0310f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c0f9b8fa9ebd5174363600abe00be381a74907b577f299862a08ad5aa28a2970",
+				"dweb:/ipfs/QmPc7d8D8k86kzXqTK7Za1sGHeQ4MydELoykejdukkaZdW"
+			]
+		},
+		"contracts/Strings.sol": {
+			"keccak256": "0x01ecb0d2cd3bc253110274a84b73e4329dc10c58c81bce4715a156cfd35fc90d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://425cd9c9eb161b8aec34890085e7ee2be6e6f5d2a851415cd59d8a2171a13db1",
+				"dweb:/ipfs/QmVcSqgXHNBch5SBgcRgxh7AsFtHPP6vBK13VrBw14pUDX"
+			]
+		}
+	},
+	"version": 1
+}
